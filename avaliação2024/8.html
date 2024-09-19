@@ -19,16 +19,54 @@
             <a href="7.html">Questão 7</a>
             <a href="8.html">Questão 8</a>
         </nav>
-        <p>Faça um código JS de um jogo onde o usuário tem que adivinhar em 3 tentativas o número sorteado (de 1 a 10). Exiba se ele acertou ou não enquanto tiver novas tentativas.</p>
-        <input type="number" id="n" min="0" max="10" step="1" placeholder="Escreva o número">
+        <p>Faça um código JS de um jogo onde o usuário tem que adivinhar em 10 tentativas o número sorteado (de 1 a 100). Caso o usuário erre, o jogo deve informar se o número sorteado é maior ou menor.</p>
+        <input type="number" id="n" min="1" max="100" step="1" placeholder="Escreva o número">
         <br>
         <p id="resposta"></p>
         <button>adivinhar o número</button>
     </div>
     <script>
-        // escreva seu código JS aqui
-        let sorteado = Math.ceil(Math.random() * 10);
-        console.log(sorteado);
+        // elementos
+        let n = document.getElementById("n");
+        let resposta = document.getElementById("resposta");
+        let botao = document.querySelector("button");
+
+        let sorteado = 0;
+        let tentativas = 0;
+        function reset(){
+            sorteado = Math.ceil(Math.random() * 100);
+            console.log(sorteado);
+            tentativas = 10;
+            botao.innerHTML = `Você tem ${tentativas} tentativas`;
+            n.value = "";
+            esposta.innerHTML = "";
+        }
+        // quando a página for carregada chama reset()
+        reset();
+
+        // quando clicar no botao
+        botao.addEventListener("click", ()=>{
+            tentativas--;
+            if(tentativas>0){                
+                botao.innerHTML = `Você tem ${tentativas} tentativas`;
+                if(n.value==sorteado){
+                    resposta.innerHTML = "Você acertou!";
+                    tentativas = 0;
+                }
+                else if(n.value>sorteado){
+                    resposta.innerHTML = "O número sorteado é menor!";
+                }
+                else{
+                    resposta.innerHTML = "O número sorteado é maior!";
+                }
+            }
+            if(tentativas == 0){
+                botao.innerHTML = 'Jogar novamente';
+            }
+            if(tentativas < 0){
+                reset();
+            }
+        });
     </script>
 </body>
 </html>
