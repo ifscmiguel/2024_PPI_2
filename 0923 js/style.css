@@ -67,7 +67,7 @@ dt {
     font-weight: bold;
 }
 
-p, div{
+div{
     padding:20px;
     border:1px solid #999999;
 }
