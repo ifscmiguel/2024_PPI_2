@@ -1,0 +1,12 @@
+<!-- arquivo tarefas.xml -->
+<tarefas>
+    <tarefa>
+        <titulo>Teste de titulo</titulo>
+        <desc>aqui vai a descrição</desc>
+    </tarefa>
+
+    <tarefa>
+        <titulo>Teste de titulo</titulo>
+        <desc>aqui vai a descrição</desc>
+    </tarefa>
+</tarefas>
